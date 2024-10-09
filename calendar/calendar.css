@@ -1,0 +1,245 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+    background-color: #ddd6d8;
+    background-size: cover;
+}
+
+/* Title Section */
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px 0;
+    box-sizing: border-box;
+}
+
+/* Title Image */
+.title img {
+    max-width: 500px;
+    height: auto;
+}
+
+/* Hamburger Menu Icon */
+.hamburger-menu {
+    display: none; /* Hidden by default, shown on small screens */
+    font-size: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Banner Section for larger screens */
+.banner {
+    display: flex;
+    justify-content: center; /* Items in one line, horizontally centered */
+    align-items: center;
+    gap: 10vw; /* Horizontal space between banner items */
+    padding: 20px;
+    width: 100%; /* Full width of the page */
+    padding-bottom: 80px;
+}
+
+/* Style for each banner item */
+.banner_item {
+    text-align: center;
+}
+
+/* Banner Links */
+.banner_link {
+    text-decoration: none;
+    color: #6e6e6e;
+    font-weight: lighter;
+    transition: color 0.3s ease;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.banner_link:hover {
+    color: rgb(240, 240, 240);
+}
+
+.image-section {
+    max-width: 50%;
+    height: auto;   /* Maintain the aspect ratio */
+    border-radius: 10px;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.image-section img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.month-header {
+    text-align: center;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-size: 30px;
+    flex-grow: 1;
+}
+
+.calendar-navigation {
+    position: relative;
+    display: flex;
+    justify-content: space-between; /* Space the elements across the container */
+    align-items: center;
+    width: 100%; /* Full width of the container */
+}
+
+.calendar-navigation button {
+    background-color: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.none-arrow {
+    width: 40px; /* Same width as the arrow button */
+    height: 40px; /* Same height as the arrow button */
+    visibility: hidden; /* Make it invisible but still take up space */
+}
+
+/* Positioning the arrows */
+.prev-month, .next-month {
+    top: 0; /* Aligns the arrows to the top of the calendar */
+    font-size: 32px;
+    text-decoration: none;
+    color: #333;
+    background-color: transparent;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+
+.prev-month {
+    left: -20px; /* Positioning the left arrow at the left corner */
+}
+
+.next-month {
+    right: -20px; /* Positioning the right arrow at the right corner */
+}
+
+.prev-month:hover, .next-month:hover {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+/* START */
+.calendar-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: auto;
+    gap: 3px; /* No gap between rows */
+    padding: 3px; /* No padding */
+    margin: 0; /* No margin */
+    background-color: rgb(248, 248, 248);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.day-header, .day, .empty {
+    padding: 5px; /* Minimize padding */
+    text-align: left;
+    background-color: #ddd6d8;
+    border-radius: 5px;
+    margin: 0; /* No margin */
+}
+
+.day-header {
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
+.day {
+    height: 100px; /* Adjusted height for compact view */
+    width: 100px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+    font-weight: lighter;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align content at the top */
+    justify-content: flex-start; /* Align content to the left */
+    padding-left: 5px; /* Add left padding for space */
+}
+
+.day-event {
+    color: #6e6e6e;
+
+}
+
+.empty {
+    height: 60px; /* Adjust empty cell height */
+    background-color: transparent; /* Make empty cells transparent */
+}
+
+/* Media Queries for smaller screens */
+@media (max-width: 730px) {
+    .title img {
+        width: 90%;
+    }
+
+    .hamburger-menu {
+        display: block; /* Show the hamburger menu on smaller screens */
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .banner {
+        display: none; /* Hide the banner by default on small screens */
+        flex-direction: column; /* Stack banner items vertically */
+        align-items: center;
+    }
+
+    .banner.show {
+        display: flex; /* Show banner when toggled */
+    }
+
+    .image-section {
+        width: 100%;
+        display: flex;
+        justify-content: center; /* Center the image */
+        margin-top: 0; /* Ensure no extra space between text and image */
+    }
+
+    .image-section img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* Ensure calendar responsiveness */
+    .calendar {
+        grid-template-columns: repeat(7, 1fr);
+    }
+
+        /* Responsive navigation - keep the arrows and month centered */
+    .calendar-navigation {
+        justify-content: space-between; /* Ensure space between prev and next buttons */
+    }
+
+    .prev-month, .next-month {
+        font-size: 24px;
+        margin: 0 10px;
+    }
+}
